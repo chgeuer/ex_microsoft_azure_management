@@ -33,7 +33,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.RoleAssignments do
     %{}
     |> method(:put)
     |> url("/#{scope}/providers/Microsoft.Authorization/roleAssignments/#{role_assignment_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -61,7 +61,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.RoleAssignments do
     %{}
     |> method(:put)
     |> url("/#{role_assignment_id}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

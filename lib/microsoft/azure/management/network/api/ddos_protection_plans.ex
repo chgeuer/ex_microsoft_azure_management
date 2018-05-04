@@ -34,7 +34,7 @@ defmodule Microsoft.Azure.Management.Network.Api.DdosProtectionPlans do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/ddosProtectionPlans/#{ddos_protection_plan_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

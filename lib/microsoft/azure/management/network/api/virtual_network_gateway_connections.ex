@@ -34,7 +34,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/connections/#{virtual_network_gateway_connection_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -175,7 +175,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/connections/#{virtual_network_gateway_connection_name}/sharedkey/reset")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -205,7 +205,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/connections/#{virtual_network_gateway_connection_name}/sharedkey")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -235,7 +235,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
     %{}
     |> method(:patch)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/connections/#{virtual_network_gateway_connection_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

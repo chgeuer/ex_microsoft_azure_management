@@ -35,7 +35,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.ManagementLocks do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Authorization/locks/#{lock_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -70,7 +70,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.ManagementLocks do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}/providers/#{resource_provider_namespace}/#{parent_resource_path}/#{resource_type}/#{resource_name}/providers/Microsoft.Authorization/locks/#{lock_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -100,7 +100,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.ManagementLocks do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/providers/Microsoft.Authorization/locks/#{lock_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -129,7 +129,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.ManagementLocks do
     %{}
     |> method(:put)
     |> url("/#{scope}/providers/Microsoft.Authorization/locks/#{lock_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

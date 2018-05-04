@@ -35,7 +35,7 @@ defmodule Microsoft.Azure.Management.Network.Api.ConnectionMonitors do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/connectionMonitors/#{connection_monitor_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

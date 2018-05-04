@@ -4,20 +4,24 @@
 
 defmodule Microsoft.Azure.Management.Network.Model.Resource do
   @moduledoc """
-  The core properties of ARM resources
+  Common resource representation.
   """
 
   @derive [Poison.Encoder]
   defstruct [
     :"id",
     :"name",
-    :"type"
+    :"type",
+    :"location",
+    :"tags"
   ]
 
   @type t :: %__MODULE__{
     :"id" => String.t,
     :"name" => String.t,
-    :"type" => String.t
+    :"type" => String.t,
+    :"location" => String.t,
+    :"tags" => %{optional(String.t) => String.t}
   }
 end
 

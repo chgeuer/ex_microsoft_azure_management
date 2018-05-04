@@ -391,7 +391,7 @@ defmodule Microsoft.Azure.Management.Compute.Api.VirtualMachineScaleSetVMs do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Compute/virtualMachineScaleSets/#{vm_scale_set_name}/virtualmachines/#{instance_id}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

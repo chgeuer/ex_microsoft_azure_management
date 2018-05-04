@@ -60,7 +60,7 @@ defmodule Microsoft.Azure.Management.Resources.Api.ResourceGroups do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -117,7 +117,7 @@ defmodule Microsoft.Azure.Management.Resources.Api.ResourceGroups do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}/exportTemplate")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -207,7 +207,7 @@ defmodule Microsoft.Azure.Management.Resources.Api.ResourceGroups do
     %{}
     |> method(:patch)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

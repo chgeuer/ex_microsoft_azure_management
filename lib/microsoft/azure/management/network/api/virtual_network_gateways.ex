@@ -34,7 +34,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGateways do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/virtualNetworkGateways/#{virtual_network_gateway_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -92,7 +92,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGateways do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/virtualNetworkGateways/#{virtual_network_gateway_name}/generatevpnprofile")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -122,7 +122,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGateways do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/virtualNetworkGateways/#{virtual_network_gateway_name}/generatevpnclientpackage")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -473,7 +473,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGateways do
     %{}
     |> method(:patch)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/virtualNetworkGateways/#{virtual_network_gateway_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -503,7 +503,7 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGateways do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/connections/#{virtual_network_gateway_connection_name}/vpndeviceconfigurationscript")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

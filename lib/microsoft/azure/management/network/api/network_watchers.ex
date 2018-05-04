@@ -34,7 +34,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/connectivityCheck")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -64,7 +64,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -150,7 +150,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/azureReachabilityReport")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -180,7 +180,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/queryFlowLogStatus")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -210,7 +210,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/nextHop")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -240,7 +240,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/topology")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -270,7 +270,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/troubleshoot")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -300,7 +300,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/queryTroubleshootResult")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -330,7 +330,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/securityGroupView")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -413,7 +413,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/availableProvidersList")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -443,7 +443,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/configureFlowLog")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -473,7 +473,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:patch)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -503,7 +503,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.Network/networkWatchers/#{network_watcher_name}/ipFlowVerify")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

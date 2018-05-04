@@ -33,7 +33,7 @@ defmodule Microsoft.Azure.Management.Compute.Api.LogAnalytics do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/providers/Microsoft.Compute/locations/#{location}/logAnalytics/apiAccess/getRequestRateByInterval")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -62,7 +62,7 @@ defmodule Microsoft.Azure.Management.Compute.Api.LogAnalytics do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/providers/Microsoft.Compute/locations/#{location}/logAnalytics/apiAccess/getThrottledRequests")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

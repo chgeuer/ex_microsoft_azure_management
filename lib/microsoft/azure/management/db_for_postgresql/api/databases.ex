@@ -36,7 +36,7 @@ defmodule Microsoft.Azure.Management.DbForPostgresql.Api.Databases do
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.DBforPostgreSQL/servers/#{server_name}/databases/#{database_name}")
     |> add_param(:query, :"api-version", api_version)
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(%Microsoft.Azure.Management.DbForPostgresql.Model.Database{})

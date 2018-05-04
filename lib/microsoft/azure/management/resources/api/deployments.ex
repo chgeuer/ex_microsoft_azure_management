@@ -92,7 +92,7 @@ defmodule Microsoft.Azure.Management.Resources.Api.Deployments do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}/providers/Microsoft.Resources/deployments/#{deployment_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -241,7 +241,7 @@ defmodule Microsoft.Azure.Management.Resources.Api.Deployments do
     %{}
     |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourcegroups/#{resource_group_name}/providers/Microsoft.Resources/deployments/#{deployment_name}/validate")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()

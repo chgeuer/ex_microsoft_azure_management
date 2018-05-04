@@ -33,7 +33,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.PolicyDefinitions do
     %{}
     |> method(:put)
     |> url("/subscriptions/#{subscription_id}/providers/Microsoft.Authorization/policyDefinitions/#{policy_definition_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -62,7 +62,7 @@ defmodule Microsoft.Azure.Management.Authorization.Api.PolicyDefinitions do
     %{}
     |> method(:put)
     |> url("/providers/Microsoft.Management/managementgroups/#{management_group_id}/providers/Microsoft.Authorization/policyDefinitions/#{policy_definition_name}")
-    |> add_param(:body, :"parameters", parameters)
+    |> add_param(:body, :body, parameters)
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
