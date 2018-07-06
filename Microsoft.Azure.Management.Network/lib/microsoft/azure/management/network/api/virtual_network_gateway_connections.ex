@@ -227,10 +227,10 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
 
   ## Returns
 
-  {:ok, %Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnectionListEntity{}} on success
+  {:ok, %Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnection{}} on success
   {:error, info} on failure
   """
-  @spec virtual_network_gateway_connections_update_tags(Tesla.Env.client, String.t, String.t, Microsoft.Azure.Management.Network.Model.TagsObject.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnectionListEntity.t} | {:error, Tesla.Env.t}
+  @spec virtual_network_gateway_connections_update_tags(Tesla.Env.client, String.t, String.t, Microsoft.Azure.Management.Network.Model.TagsObject.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnection.t} | {:error, Tesla.Env.t}
   def virtual_network_gateway_connections_update_tags(connection, resource_group_name, virtual_network_gateway_connection_name, parameters, api_version, subscription_id, _opts \\ []) do
     %{}
     |> method(:patch)
@@ -239,6 +239,6 @@ defmodule Microsoft.Azure.Management.Network.Api.VirtualNetworkGatewayConnection
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnectionListEntity{})
+    |> decode(%Microsoft.Azure.Management.Network.Model.VirtualNetworkGatewayConnection{})
   end
 end

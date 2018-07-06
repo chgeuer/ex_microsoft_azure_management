@@ -415,6 +415,34 @@ defmodule Microsoft.Azure.Management.Database.CosmosDb.Api.Default do
   end
 
   @doc """
+  Lists the read-only access keys for the specified Azure Cosmos DB database account.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Database.CosmosDb.Connection): Connection to server
+  - subscription_id (String.t): Azure subscription ID.
+  - resource_group_name (String.t): Name of an Azure resource group.
+  - account_name (String.t): Cosmos DB database account name.
+  - api_version (String.t): Version of the API to be used with the client request. The current version is 2015-04-08.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %Microsoft.Azure.Management.Database.CosmosDb.Model.DatabaseAccountListReadOnlyKeysResult{}} on success
+  {:error, info} on failure
+  """
+  @spec database_accounts_get_read_only_keys(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Database.CosmosDb.Model.DatabaseAccountListReadOnlyKeysResult.t} | {:error, Tesla.Env.t}
+  def database_accounts_get_read_only_keys(connection, subscription_id, resource_group_name, account_name, api_version, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/#{account_name}/readonlykeys")
+    |> add_param(:query, :"api-version", api_version)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(%Microsoft.Azure.Management.Database.CosmosDb.Model.DatabaseAccountListReadOnlyKeysResult{})
+  end
+
+  @doc """
   Lists all the Azure Cosmos DB database accounts available under the subscription.
 
   ## Parameters
@@ -601,7 +629,7 @@ defmodule Microsoft.Azure.Management.Database.CosmosDb.Api.Default do
   @spec database_accounts_list_read_only_keys(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Database.CosmosDb.Model.DatabaseAccountListReadOnlyKeysResult.t} | {:error, Tesla.Env.t}
   def database_accounts_list_read_only_keys(connection, subscription_id, resource_group_name, account_name, api_version, _opts \\ []) do
     %{}
-    |> method(:get)
+    |> method(:post)
     |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/#{account_name}/readonlykeys")
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
@@ -640,6 +668,66 @@ defmodule Microsoft.Azure.Management.Database.CosmosDb.Api.Default do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(%Microsoft.Azure.Management.Database.CosmosDb.Model.UsagesResult{})
+  end
+
+  @doc """
+  Offline the specified region for the specified Azure Cosmos DB database account.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Database.CosmosDb.Connection): Connection to server
+  - subscription_id (String.t): Azure subscription ID.
+  - resource_group_name (String.t): Name of an Azure resource group.
+  - account_name (String.t): Cosmos DB database account name.
+  - api_version (String.t): Version of the API to be used with the client request. The current version is 2015-04-08.
+  - region_parameter_for_offline (RegionForOnlineOffline): Cosmos DB region to offline for the database account.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %{}} on success
+  {:error, info} on failure
+  """
+  @spec database_accounts_offline_region(Tesla.Env.client, String.t, String.t, String.t, String.t, Microsoft.Azure.Management.Database.CosmosDb.Model.RegionForOnlineOffline.t, keyword()) :: {:ok, nil} | {:error, Tesla.Env.t}
+  def database_accounts_offline_region(connection, subscription_id, resource_group_name, account_name, api_version, region_parameter_for_offline, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/#{account_name}/offlineRegion")
+    |> add_param(:query, :"api-version", api_version)
+    |> add_param(:body, :body, region_parameter_for_offline)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(false)
+  end
+
+  @doc """
+  Online the specified region for the specified Azure Cosmos DB database account.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Database.CosmosDb.Connection): Connection to server
+  - subscription_id (String.t): Azure subscription ID.
+  - resource_group_name (String.t): Name of an Azure resource group.
+  - account_name (String.t): Cosmos DB database account name.
+  - api_version (String.t): Version of the API to be used with the client request. The current version is 2015-04-08.
+  - region_parameter_for_online (RegionForOnlineOffline): Cosmos DB region to online for the database account.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %{}} on success
+  {:error, info} on failure
+  """
+  @spec database_accounts_online_region(Tesla.Env.client, String.t, String.t, String.t, String.t, Microsoft.Azure.Management.Database.CosmosDb.Model.RegionForOnlineOffline.t, keyword()) :: {:ok, nil} | {:error, Tesla.Env.t}
+  def database_accounts_online_region(connection, subscription_id, resource_group_name, account_name, api_version, region_parameter_for_online, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.DocumentDB/databaseAccounts/#{account_name}/onlineRegion")
+    |> add_param(:query, :"api-version", api_version)
+    |> add_param(:body, :body, region_parameter_for_online)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(false)
   end
 
   @doc """

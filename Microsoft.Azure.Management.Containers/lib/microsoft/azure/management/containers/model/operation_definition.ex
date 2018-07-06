@@ -9,13 +9,17 @@ defmodule Microsoft.Azure.Management.Containers.Model.OperationDefinition do
 
   @derive [Poison.Encoder]
   defstruct [
+    :"origin",
     :"name",
-    :"display"
+    :"display",
+    :"properties"
   ]
 
   @type t :: %__MODULE__{
+    :"origin" => String.t,
     :"name" => String.t,
-    :"display" => OperationDisplayDefinition
+    :"display" => OperationDisplayDefinition,
+    :"properties" => OperationPropertiesDefinition
   }
 end
 
@@ -24,6 +28,7 @@ defimpl Poison.Decoder, for: Microsoft.Azure.Management.Containers.Model.Operati
   def decode(value, options) do
     value
     |> deserialize(:"display", :struct, Microsoft.Azure.Management.Containers.Model.OperationDisplayDefinition, options)
+    |> deserialize(:"properties", :struct, Microsoft.Azure.Management.Containers.Model.OperationPropertiesDefinition, options)
   end
 end
 

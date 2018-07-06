@@ -55,10 +55,10 @@ defmodule Microsoft.Azure.Management.Compute.Api.Snapshots do
 
   ## Returns
 
-  {:ok, %Microsoft.Azure.Management.Compute.Model.OperationStatusResponse{}} on success
+  {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec snapshots_delete(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Compute.Model.OperationStatusResponse.t} | {:error, Tesla.Env.t}
+  @spec snapshots_delete(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:error, Tesla.Env.t}
   def snapshots_delete(connection, subscription_id, resource_group_name, snapshot_name, api_version, _opts \\ []) do
     %{}
     |> method(:delete)
@@ -66,7 +66,7 @@ defmodule Microsoft.Azure.Management.Compute.Api.Snapshots do
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%Microsoft.Azure.Management.Compute.Model.OperationStatusResponse{})
+    |> decode(false)
   end
 
   @doc """
@@ -194,10 +194,10 @@ defmodule Microsoft.Azure.Management.Compute.Api.Snapshots do
 
   ## Returns
 
-  {:ok, %Microsoft.Azure.Management.Compute.Model.OperationStatusResponse{}} on success
+  {:ok, %{}} on success
   {:error, info} on failure
   """
-  @spec snapshots_revoke_access(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Compute.Model.OperationStatusResponse.t} | {:error, Tesla.Env.t}
+  @spec snapshots_revoke_access(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:error, Tesla.Env.t}
   def snapshots_revoke_access(connection, subscription_id, resource_group_name, snapshot_name, api_version, _opts \\ []) do
     %{}
     |> method(:post)
@@ -205,7 +205,7 @@ defmodule Microsoft.Azure.Management.Compute.Api.Snapshots do
     |> add_param(:query, :"api-version", api_version)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%Microsoft.Azure.Management.Compute.Model.OperationStatusResponse{})
+    |> decode(false)
   end
 
   @doc """

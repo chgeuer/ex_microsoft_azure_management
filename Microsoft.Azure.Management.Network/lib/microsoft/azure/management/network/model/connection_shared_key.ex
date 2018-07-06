@@ -9,11 +9,11 @@ defmodule Microsoft.Azure.Management.Network.Model.ConnectionSharedKey do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"value"
+    :"id"
   ]
 
   @type t :: %__MODULE__{
-    :"value" => String.t
+    :"id" => String.t
   }
 end
 

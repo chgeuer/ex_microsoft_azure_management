@@ -72,7 +72,7 @@ defmodule Microsoft.Azure.Management.Network.Api.ExpressRouteCircuitPeerings do
   end
 
   @doc """
-  Gets the specified authorization from the specified express route circuit.
+  Gets the specified peering for the express route circuit.
 
   ## Parameters
 

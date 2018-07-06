@@ -31,7 +31,7 @@ defmodule Microsoft.Azure.Management.Containers.Model.ContainerServiceAgentPoolP
     :"ports" => [integer()],
     :"storageProfile" => ContainerServiceStorageProfile,
     :"vnetSubnetID" => ContainerServiceVnetSubnetId,
-    :"osType" => String.t
+    :"osType" => OsType
   }
 end
 
@@ -43,6 +43,7 @@ defimpl Poison.Decoder, for: Microsoft.Azure.Management.Containers.Model.Contain
     |> deserialize(:"osDiskSizeGB", :struct, Microsoft.Azure.Management.Containers.Model.ContainerServiceOsDisk, options)
     |> deserialize(:"storageProfile", :struct, Microsoft.Azure.Management.Containers.Model.ContainerServiceStorageProfile, options)
     |> deserialize(:"vnetSubnetID", :struct, Microsoft.Azure.Management.Containers.Model.ContainerServiceVnetSubnetId, options)
+    |> deserialize(:"osType", :struct, Microsoft.Azure.Management.Containers.Model.OsType, options)
   end
 end
 

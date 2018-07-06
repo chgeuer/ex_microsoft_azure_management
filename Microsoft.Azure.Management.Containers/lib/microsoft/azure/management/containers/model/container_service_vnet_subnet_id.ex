@@ -4,7 +4,7 @@
 
 defmodule Microsoft.Azure.Management.Containers.Model.ContainerServiceVnetSubnetId do
   @moduledoc """
-  VNet SubnetID specifies the vnet&#39;s subnet identifier. If you specify either master VNet Subnet, or agent VNet Subnet, you need to specify both. And they have to be in the same VNet.
+  VNet SubnetID specifies the vnet&#39;s subnet identifier.
   """
 
   @derive [Poison.Encoder]

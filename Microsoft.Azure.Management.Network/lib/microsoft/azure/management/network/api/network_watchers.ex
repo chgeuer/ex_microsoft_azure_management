@@ -158,14 +158,14 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
   end
 
   @doc """
-  Queries status of flow log on a specified resource.
+  Queries status of flow log and traffic analytics (optional) on a specified resource.
 
   ## Parameters
 
   - connection (Microsoft.Azure.Management.Network.Connection): Connection to server
   - resource_group_name (String.t): The name of the network watcher resource group.
   - network_watcher_name (String.t): The name of the network watcher resource.
-  - parameters (FlowLogStatusParameters): Parameters that define a resource to query flow log status.
+  - parameters (FlowLogStatusParameters): Parameters that define a resource to query flow log and traffic analytics (optional)  status.
   - api_version (String.t): Client API version.
   - subscription_id (String.t): The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   - opts (KeywordList): [optional] Optional parameters
@@ -421,7 +421,7 @@ defmodule Microsoft.Azure.Management.Network.Api.NetworkWatchers do
   end
 
   @doc """
-  Configures flow log on a specified resource.
+  Configures flow log  and traffic analytics (optional) on a specified resource.
 
   ## Parameters
 

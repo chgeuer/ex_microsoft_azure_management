@@ -26,6 +26,8 @@ defmodule Microsoft.Azure.Management.Network.Model.ApplicationGatewayPropertiesF
     :"redirectConfigurations",
     :"webApplicationFirewallConfiguration",
     :"enableHttp2",
+    :"enableFips",
+    :"autoscaleConfiguration",
     :"resourceGuid",
     :"provisioningState"
   ]
@@ -48,6 +50,8 @@ defmodule Microsoft.Azure.Management.Network.Model.ApplicationGatewayPropertiesF
     :"redirectConfigurations" => [ApplicationGatewayRedirectConfiguration],
     :"webApplicationFirewallConfiguration" => ApplicationGatewayWebApplicationFirewallConfiguration,
     :"enableHttp2" => boolean(),
+    :"enableFips" => boolean(),
+    :"autoscaleConfiguration" => ApplicationGatewayAutoscaleConfiguration,
     :"resourceGuid" => String.t,
     :"provisioningState" => String.t
   }
@@ -72,6 +76,7 @@ defimpl Poison.Decoder, for: Microsoft.Azure.Management.Network.Model.Applicatio
     |> deserialize(:"requestRoutingRules", :list, Microsoft.Azure.Management.Network.Model.ApplicationGatewayRequestRoutingRule, options)
     |> deserialize(:"redirectConfigurations", :list, Microsoft.Azure.Management.Network.Model.ApplicationGatewayRedirectConfiguration, options)
     |> deserialize(:"webApplicationFirewallConfiguration", :struct, Microsoft.Azure.Management.Network.Model.ApplicationGatewayWebApplicationFirewallConfiguration, options)
+    |> deserialize(:"autoscaleConfiguration", :struct, Microsoft.Azure.Management.Network.Model.ApplicationGatewayAutoscaleConfiguration, options)
   end
 end
 

@@ -209,6 +209,34 @@ defmodule Microsoft.Azure.Management.Containers.Api.Registries do
   end
 
   @doc """
+  Lists the policies for the specified container registry.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Containers.Connection): Connection to server
+  - api_version (String.t): The client API version.
+  - subscription_id (String.t): The Microsoft Azure subscription ID.
+  - resource_group_name (String.t): The name of the resource group to which the container registry belongs.
+  - registry_name (String.t): The name of the container registry.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %Microsoft.Azure.Management.Containers.Model.RegistryPolicies{}} on success
+  {:error, info} on failure
+  """
+  @spec registries_list_policies(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Containers.Model.RegistryPolicies.t} | {:error, Tesla.Env.t}
+  def registries_list_policies(connection, api_version, subscription_id, resource_group_name, registry_name, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.ContainerRegistry/registries/#{registry_name}/listPolicies")
+    |> add_param(:query, :"api-version", api_version)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(%Microsoft.Azure.Management.Containers.Model.RegistryPolicies{})
+  end
+
+  @doc """
   Gets the quota usages for the specified container registry.
 
   ## Parameters
@@ -294,5 +322,35 @@ defmodule Microsoft.Azure.Management.Containers.Api.Registries do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> decode(%Microsoft.Azure.Management.Containers.Model.Registry{})
+  end
+
+  @doc """
+  Updates the policies for the specified container registry.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Containers.Connection): Connection to server
+  - api_version (String.t): The client API version.
+  - subscription_id (String.t): The Microsoft Azure subscription ID.
+  - resource_group_name (String.t): The name of the resource group to which the container registry belongs.
+  - registry_name (String.t): The name of the container registry.
+  - registry_policies_update_parameters (RegistryPolicies): The parameters for updating policies of a container registry.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %Microsoft.Azure.Management.Containers.Model.RegistryPolicies{}} on success
+  {:error, info} on failure
+  """
+  @spec registries_update_policies(Tesla.Env.client, String.t, String.t, String.t, String.t, Microsoft.Azure.Management.Containers.Model.RegistryPolicies.t, keyword()) :: {:ok, Microsoft.Azure.Management.Containers.Model.RegistryPolicies.t} | {:error, Tesla.Env.t}
+  def registries_update_policies(connection, api_version, subscription_id, resource_group_name, registry_name, registry_policies_update_parameters, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.ContainerRegistry/registries/#{registry_name}/updatePolicies")
+    |> add_param(:query, :"api-version", api_version)
+    |> add_param(:body, :body, registry_policies_update_parameters)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(%Microsoft.Azure.Management.Containers.Model.RegistryPolicies{})
   end
 end

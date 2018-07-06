@@ -4,7 +4,7 @@
 
 defmodule Microsoft.Azure.Management.Network.Model.FlowLogStatusParameters do
   @moduledoc """
-  Parameters that define a resource to query flow log status.
+  Parameters that define a resource to query flow log and traffic analytics (optional) status.
   """
 
   @derive [Poison.Encoder]

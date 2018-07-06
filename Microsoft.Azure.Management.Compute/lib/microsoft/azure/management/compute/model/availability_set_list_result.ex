@@ -9,11 +9,13 @@ defmodule Microsoft.Azure.Management.Compute.Model.AvailabilitySetListResult do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"value"
+    :"value",
+    :"nextLink"
   ]
 
   @type t :: %__MODULE__{
-    :"value" => [AvailabilitySet]
+    :"value" => [AvailabilitySet],
+    :"nextLink" => String.t
   }
 end
 

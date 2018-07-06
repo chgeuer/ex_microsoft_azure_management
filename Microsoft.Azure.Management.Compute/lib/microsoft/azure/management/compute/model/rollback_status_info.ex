@@ -4,7 +4,7 @@
 
 defmodule Microsoft.Azure.Management.Compute.Model.RollbackStatusInfo do
   @moduledoc """
-  Information about rollback on failed VM instances after a OS Upgrade operation
+  Information about rollback on failed VM instances after a OS Upgrade operation.
   """
 
   @derive [Poison.Encoder]

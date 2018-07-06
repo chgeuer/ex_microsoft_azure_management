@@ -11,13 +11,15 @@ defmodule Microsoft.Azure.Management.Compute.Model.UpgradePolicy do
   defstruct [
     :"mode",
     :"rollingUpgradePolicy",
-    :"automaticOSUpgrade"
+    :"automaticOSUpgrade",
+    :"autoOSUpgradePolicy"
   ]
 
   @type t :: %__MODULE__{
     :"mode" => String.t,
     :"rollingUpgradePolicy" => RollingUpgradePolicy,
-    :"automaticOSUpgrade" => boolean()
+    :"automaticOSUpgrade" => boolean(),
+    :"autoOSUpgradePolicy" => AutoOsUpgradePolicy
   }
 end
 
@@ -26,6 +28,7 @@ defimpl Poison.Decoder, for: Microsoft.Azure.Management.Compute.Model.UpgradePol
   def decode(value, options) do
     value
     |> deserialize(:"rollingUpgradePolicy", :struct, Microsoft.Azure.Management.Compute.Model.RollingUpgradePolicy, options)
+    |> deserialize(:"autoOSUpgradePolicy", :struct, Microsoft.Azure.Management.Compute.Model.AutoOsUpgradePolicy, options)
   end
 end
 

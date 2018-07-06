@@ -14,7 +14,7 @@ defmodule Microsoft.Azure.Management.Preview.Containers.Model.BuildFilter do
     :"status",
     :"createTime",
     :"finishTime",
-    :"outputImageNames",
+    :"outputImageManifests",
     :"isArchiveEnabled",
     :"buildTaskName"
   ]
@@ -25,7 +25,7 @@ defmodule Microsoft.Azure.Management.Preview.Containers.Model.BuildFilter do
     :"status" => String.t,
     :"createTime" => DateTime.t,
     :"finishTime" => DateTime.t,
-    :"outputImageNames" => [String.t],
+    :"outputImageManifests" => String.t,
     :"isArchiveEnabled" => boolean(),
     :"buildTaskName" => String.t
   }

@@ -4,7 +4,7 @@
 
 defmodule Microsoft.Azure.Management.Compute.Model.DiskSku do
   @moduledoc """
-  The disks sku name. Can be Standard_LRS or Premium_LRS.
+  The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
   """
 
   @derive [Poison.Encoder]

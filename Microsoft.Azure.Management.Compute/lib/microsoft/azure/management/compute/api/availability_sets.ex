@@ -153,6 +153,32 @@ defmodule Microsoft.Azure.Management.Compute.Api.AvailabilitySets do
   end
 
   @doc """
+  Lists all availability sets in a subscription.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Compute.Connection): Connection to server
+  - api_version (String.t): Client Api Version.
+  - subscription_id (String.t): Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %Microsoft.Azure.Management.Compute.Model.AvailabilitySetListResult{}} on success
+  {:error, info} on failure
+  """
+  @spec availability_sets_list_by_subscription(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Compute.Model.AvailabilitySetListResult.t} | {:error, Tesla.Env.t}
+  def availability_sets_list_by_subscription(connection, api_version, subscription_id, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/subscriptions/#{subscription_id}/providers/Microsoft.Compute/availabilitySets")
+    |> add_param(:query, :"api-version", api_version)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(%Microsoft.Azure.Management.Compute.Model.AvailabilitySetListResult{})
+  end
+
+  @doc """
   Update an availability set.
 
   ## Parameters

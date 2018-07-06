@@ -101,8 +101,38 @@ defmodule Microsoft.Azure.Management.Containers.Api.ManagedClusters do
   end
 
   @doc """
-  Gets access profile of a managed cluster.
+  Gets an access profile of a managed cluster.
   Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
+
+  ## Parameters
+
+  - connection (Microsoft.Azure.Management.Containers.Connection): Connection to server
+  - api_version (String.t): Client Api Version.
+  - subscription_id (String.t): Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  - resource_group_name (String.t): The name of the resource group.
+  - resource_name (String.t): The name of the managed cluster resource.
+  - role_name (String.t): The name of the role for managed cluster accessProfile resource.
+  - opts (KeywordList): [optional] Optional parameters
+
+  ## Returns
+
+  {:ok, %Microsoft.Azure.Management.Containers.Model.ManagedClusterAccessProfile{}} on success
+  {:error, info} on failure
+  """
+  @spec managed_clusters_get_access_profile(Tesla.Env.client, String.t, String.t, String.t, String.t, String.t, keyword()) :: {:ok, Microsoft.Azure.Management.Containers.Model.ManagedClusterAccessProfile.t} | {:error, Tesla.Env.t}
+  def managed_clusters_get_access_profile(connection, api_version, subscription_id, resource_group_name, resource_name, role_name, _opts \\ []) do
+    %{}
+    |> method(:post)
+    |> url("/subscriptions/#{subscription_id}/resourceGroups/#{resource_group_name}/providers/Microsoft.ContainerService/managedClusters/#{resource_name}/accessProfiles/#{role_name}/listCredential")
+    |> add_param(:query, :"api-version", api_version)
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> decode(%Microsoft.Azure.Management.Containers.Model.ManagedClusterAccessProfile{})
+  end
+
+  @doc """
+  Gets access profile of a managed cluster.
+  Use ManagedClusters_GetAccessProfile instead.
 
   ## Parameters
 

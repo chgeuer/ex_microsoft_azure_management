@@ -9,11 +9,13 @@ defmodule Microsoft.Azure.Management.Compute.Model.DiskUpdate do
 
   @derive [Poison.Encoder]
   defstruct [
+    :"properties",
     :"tags",
     :"sku"
   ]
 
   @type t :: %__MODULE__{
+    :"properties" => DiskUpdateProperties,
     :"tags" => %{optional(String.t) => String.t},
     :"sku" => DiskSku
   }
@@ -23,6 +25,7 @@ defimpl Poison.Decoder, for: Microsoft.Azure.Management.Compute.Model.DiskUpdate
   import Microsoft.Azure.Management.Compute.Deserializer
   def decode(value, options) do
     value
+    |> deserialize(:"properties", :struct, Microsoft.Azure.Management.Compute.Model.DiskUpdateProperties, options)
     |> deserialize(:"sku", :struct, Microsoft.Azure.Management.Compute.Model.DiskSku, options)
   end
 end

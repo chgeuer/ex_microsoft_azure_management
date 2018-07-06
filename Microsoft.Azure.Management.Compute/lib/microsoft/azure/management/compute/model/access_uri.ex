@@ -9,19 +9,17 @@ defmodule Microsoft.Azure.Management.Compute.Model.AccessUri do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"properties"
+    :"accessSAS"
   ]
 
   @type t :: %__MODULE__{
-    :"properties" => AccessUriOutput
+    :"accessSAS" => String.t
   }
 end
 
 defimpl Poison.Decoder, for: Microsoft.Azure.Management.Compute.Model.AccessUri do
-  import Microsoft.Azure.Management.Compute.Deserializer
-  def decode(value, options) do
+  def decode(value, _options) do
     value
-    |> deserialize(:"properties", :struct, Microsoft.Azure.Management.Compute.Model.AccessUriOutput, options)
   end
 end
 
